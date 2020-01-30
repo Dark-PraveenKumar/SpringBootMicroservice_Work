@@ -1,10 +1,10 @@
-package b8.team2;
+package com.poc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class B8EurekaServerApplicationTests {
+class EurekaServerApplicationTests {
 
 	@Test
 	void contextLoads() {

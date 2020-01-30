@@ -17,12 +17,16 @@ public class FinancialAccount implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", insertable = true, updatable = false)
 	private long id;
+	
 	@Column(name = "description")
 	private String accountDescription;
+	
 	@Column(name = "type")
 	private String accountType;
+	
 	@Column(name = "code")
 	private String accountCode="";
+	
 	@Column(name = "typeFlag")
 	private Integer typeFlag; // Capex : 0, Opex : 1, Low value asset : 2
 	

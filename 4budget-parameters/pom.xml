@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.poc.4budget</groupId>
-	<artifactId>admin-service</artifactId>
+	<artifactId>4budget-parameters</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>4budget</name>
 	<description>Demo project for Spring Boot</description>
