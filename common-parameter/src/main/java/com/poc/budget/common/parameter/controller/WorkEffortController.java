@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.poc.budget.common.parameter.model.WorkEffortModel;
+import com.poc.budget.common.parameter.entity.WorkEffort;
 import com.poc.budget.common.parameter.service.WorkEffortService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,8 +24,8 @@ public class WorkEffortController {
 	
 	@Operation(summary = "Get WorkEffort")
 	@GetMapping("/getWbsForProgram/{effortId}")
-	public List<WorkEffortModel> getWBSForProgram(@PathVariable String effortId) {
-	List<WorkEffortModel> result = workEffortService.getWBSForProgram(effortId);
+	public List<WorkEffort> getWBSForProgram(@PathVariable String effortId) {
+	List<WorkEffort> result = workEffortService.getWBSForProgram(effortId);
 	return result;
 	}
 }
