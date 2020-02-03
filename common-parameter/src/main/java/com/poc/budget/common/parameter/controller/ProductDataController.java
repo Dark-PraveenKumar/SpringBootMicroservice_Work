@@ -19,14 +19,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @Tag(name = "4budget-parameter", description = ": API")
-@RequestMapping("/4budget/api/commonParameter")
+@RequestMapping("/4budget/api/commonParameter/product")
 public class ProductDataController {
 
 	@Autowired
 	ProductDataService productDataService;
 	
 	@Operation(summary = "Create ProductData")
-	@PostMapping("/product")
+	@PostMapping("/create")
 	public ProductData createAccount(@RequestBody ProductData productData) {
 		ProductData result = productDataService.createProductData(productData);
 		return result;

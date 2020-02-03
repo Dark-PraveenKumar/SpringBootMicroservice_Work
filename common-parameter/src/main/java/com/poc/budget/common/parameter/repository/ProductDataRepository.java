@@ -24,4 +24,6 @@ public interface ProductDataRepository extends JpaRepository<ProductData, Long>{
 	@Query(value = "SELECT * FROM product_data WHERE uniform_product_name LIKE %:search% and added_by_user = 0 and type ='NULL' limit 5", nativeQuery = true)
 	public List<ProductData> findProductDataByName(@Param("search") String productCode);
 	
+	
+	
 }
