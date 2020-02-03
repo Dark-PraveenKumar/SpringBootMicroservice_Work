@@ -24,7 +24,7 @@ public class Supplier {
 	
 	private boolean budgetRemoved;
 	
-	private SupplierType type;
+	private String type;
 	
 	public long getId() {
 		return id;
@@ -50,13 +50,13 @@ public class Supplier {
 	public void setBudgetRemoved(boolean budgetRemoved) {
 		this.budgetRemoved = budgetRemoved;
 	}
-	public SupplierType getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(SupplierType type) {
+	public void setType(String type) {
 		this.type = type;
 	}
-	public Supplier(String name, boolean bookingRemoved, boolean budgetRemoved, SupplierType type) {
+	public Supplier(String name, boolean bookingRemoved, boolean budgetRemoved, String type) {
 		super();
 		this.name = name;
 		this.bookingRemoved = bookingRemoved;

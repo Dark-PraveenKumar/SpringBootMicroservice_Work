@@ -2,10 +2,14 @@ package com.poc.budget.common.parameter.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poc.budget.common.parameter.entity.WorkEffort;
@@ -24,7 +28,9 @@ public class WorkEffortController {
 	
 	@Operation(summary = "Get WorkEffort")
 	@GetMapping("/getWbsForProgram/{effortId}")
-	public List<WorkEffort> getWBSForProgram(@PathVariable String effortId) {
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody List<WorkEffort> getWBSForProgram(@PathVariable String effortId) {
 	List<WorkEffort> result = workEffortService.getWBSForProgram(effortId);
 	return result;
 	}

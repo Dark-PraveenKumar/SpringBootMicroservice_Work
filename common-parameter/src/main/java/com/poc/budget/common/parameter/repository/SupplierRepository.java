@@ -10,6 +10,6 @@ import com.poc.budget.common.parameter.entity.Supplier;
 
 public interface SupplierRepository extends JpaRepository<Supplier, Long>{
 
-	@Query(value = "SELECT * FROM supplier WHERE name LIKE %:search% and type = 1 and budget_removed = 0", nativeQuery = true)
+	@Query(value = "SELECT * FROM supplier WHERE name LIKE %:search% and type = 'BUDGET' and budget_removed = 0", nativeQuery = true)
 	public List<Supplier> findSuggestiveSuppliers(@Param("search") String name);
 }

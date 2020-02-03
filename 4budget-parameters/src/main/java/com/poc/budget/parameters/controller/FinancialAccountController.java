@@ -2,6 +2,9 @@ package com.poc.budget.parameters.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +35,8 @@ public class FinancialAccountController {
 	
 	@Operation(summary = "Create Account")
 	@PostMapping("/account")
+	@Produces("application/json")
+	@Consumes("application/json")
 	public String createAccount(@RequestBody FinancialAccount financialAccount) {
 		String result = financialAccountService.createFinancialAccount(financialAccount);
 		return result;

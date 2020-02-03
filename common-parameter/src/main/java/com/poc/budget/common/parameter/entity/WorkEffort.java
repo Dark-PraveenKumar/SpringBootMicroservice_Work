@@ -25,11 +25,7 @@ public class WorkEffort {
 	private String description;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private WorkEffort referencedProgram;
-
-	/*
-	 * @ManyToOne(cascade = CascadeType.ALL) private WorkEffort referencedProgram;
-	 */
+	private WorkEffort parentEffort;
 
 	public long getId() {
 		return id;
@@ -63,20 +59,20 @@ public class WorkEffort {
 		this.description = description;
 	}
 
-    public WorkEffort getReferencedProgram() { 
-		 return referencedProgram; 
-	} 
-	public void setReferencedProgram(WorkEffort referencedProgram) {
-		  this.referencedProgram = referencedProgram; 
+	public WorkEffort getParentEffort() {
+		return parentEffort;
 	}
-	 
-	public WorkEffort(String effortId, String name, String description, WorkEffort referencedProgram) {
+
+	public void setParentEffort(WorkEffort parentEffort) {
+		this.parentEffort = parentEffort;
+	}
+
+	public WorkEffort(String effortId, String name, String description, WorkEffort parentEffort) {
 		super();
 		this.effortId = effortId;
 		this.name = name;
 		this.description = description;
-		//this.parentEffort = parentEffort;
-		this.referencedProgram = referencedProgram;
+		this.parentEffort = parentEffort;
 	}
 
 	public WorkEffort() {

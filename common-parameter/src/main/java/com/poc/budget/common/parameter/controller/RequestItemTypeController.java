@@ -2,12 +2,16 @@ package com.poc.budget.common.parameter.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poc.budget.common.parameter.entity.ProductData;
@@ -27,14 +31,18 @@ public class RequestItemTypeController {
 	
 	@Operation(summary = "Create requestItemType")
 	@PostMapping("/create")
-	public RequestItemType createRequestItemType(@RequestBody RequestItemType requestItemType) {
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody RequestItemType createRequestItemType(@RequestBody RequestItemType requestItemType) {
 		RequestItemType result = requestItemTypeService.createRequestItemType(requestItemType);
 		return result;
 	}
 	
 	@Operation(summary = "Get all requestItemTypes")
 	@GetMapping("/getAllRequestItemTypes")
-	public List<RequestItemType> getAllRequestItemType() {
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody List<RequestItemType> getAllRequestItemType() {
 	List<RequestItemType> result = requestItemTypeService.getAllItemTypes();
 	return result;
 	}

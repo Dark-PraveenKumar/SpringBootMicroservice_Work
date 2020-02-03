@@ -2,12 +2,16 @@ package com.poc.budget.common.parameter.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poc.budget.common.parameter.entity.Supplier;
@@ -26,7 +30,9 @@ public class SupplierController {
 	
 	@Operation(summary = "Create supplier")
 	@PostMapping("/create")
-	public Supplier createSupplier(@RequestBody Supplier supplier) {
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody Supplier createSupplier(@RequestBody Supplier supplier) {
 		Supplier result = supplierService.createSupplier(supplier);
 		return result;
 		
@@ -34,7 +40,9 @@ public class SupplierController {
 	
 	@Operation(summary = "Get suggestive suppliers")
 	@GetMapping("/getSuggestiveSuppliers/{search}")
-	public List<Supplier> getSuggestiveSuppliers(@PathVariable String search) {
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody List<Supplier> getSuggestiveSuppliers(@PathVariable String search) {
 	List<Supplier> result = supplierService.getSuggestiveSuppliers(search);
 	return result;
 	}

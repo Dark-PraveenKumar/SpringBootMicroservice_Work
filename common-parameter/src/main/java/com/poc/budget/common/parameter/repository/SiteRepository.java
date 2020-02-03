@@ -12,10 +12,10 @@ import com.poc.budget.common.parameter.entity.Site;
 @Repository
 public interface SiteRepository extends JpaRepository<Site, Integer>{
 
-	@Query("SELECT * FROM Site s WHERE s.parent= :id")
+	@Query("SELECT s FROM Site s WHERE s.parent= :id")
 	public List<Site> getAllSitewithParentId(@Param("id") long id);
 	
-	@Query("SELECT * FROM Site s WHERE s.parent is null")
+	@Query("SELECT s FROM Site s WHERE s.parent is null")
 	public List<Site> getAllParentSites();
 	
 }
