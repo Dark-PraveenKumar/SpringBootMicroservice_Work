@@ -10,4 +10,5 @@ public interface WorkEffortService {
 	//public WorkEffort createWorkEffort(WorkEffort workEffort);
 	
 	public List<WorkEffort> getWBSForProgram(String effortId);
+	public List<WorkEffort> getProgramForBusiness(long BusinessId);
 }

@@ -12,10 +12,11 @@ import com.poc.budget.common.parameter.entity.Business;
 @Repository
 public interface BusinessRepository extends JpaRepository<Business, Integer>{
 	
-	@Query("select b from Business b where b.ParentUnit= :id")
+	@Query("select b from Business b where b.ParentUnit.id= :id")
 	public List<Business> getSubBusiness(@Param("id") long id);
 	
 	@Query("select b from Business b where b.ParentUnit is null")
 	public List<Business> getAllBusiness();
+	
 
 }

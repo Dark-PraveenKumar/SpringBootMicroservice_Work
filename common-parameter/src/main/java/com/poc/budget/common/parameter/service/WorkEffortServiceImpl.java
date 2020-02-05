@@ -18,7 +18,13 @@ public class WorkEffortServiceImpl implements WorkEffortService{
 	public List<WorkEffort> getWBSForProgram(String effortId) {
 		// TODO Auto-generated method stub
 		return workEffortRepository.findWBSByProgram(effortId);
+		//return workEffortRepository.findProgramForBusiness(2641);
 	}
 	
-	
+	@Override
+	public List<WorkEffort> getProgramForBusiness(long BusinessId) {
+		// TODO Auto-generated method stub
+		return workEffortRepository.findProgramByBusiness(BusinessId);
+		//return workEffortRepository.findProgramForBusiness(2641);
+	}
 }
