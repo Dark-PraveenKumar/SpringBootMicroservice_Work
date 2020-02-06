@@ -1,8 +1,13 @@
 package com.poc.budget.common.parameter.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Costcenter {
@@ -15,6 +20,12 @@ public class Costcenter {
 	private double ownerId;
 	private String SiteName;
 	private String visibility;
+	@ManyToMany
+	@JoinTable(
+			  name = "Site_Costcenter_link", 
+			  joinColumns = @JoinColumn(name = "costcenter_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "site_id"))
+	private Set<Site> sites;
 
 	public int getId() {
 		return Id;
