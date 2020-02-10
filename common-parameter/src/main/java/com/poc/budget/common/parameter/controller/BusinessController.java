@@ -33,7 +33,7 @@ public class BusinessController {
 		return businessservice.getAllBusiness();
 	}
 
-	@Operation(summary = "Get Business for given site")
+	@Operation(summary = "Get all sub business")
 	@GetMapping("/getSubBusiness/{id}")
 	@Produces("application/json")
 	@Consumes("application/json")
@@ -41,7 +41,7 @@ public class BusinessController {
 		return businessservice.getSubBusiness(id);
 	}
 	
-	@Operation(summary = "Get Business for given site")
+	@Operation(summary = "Get Business for given businessId")
 	@GetMapping("/geBusinessById/{id}")
 	@Produces("application/json")
 	@Consumes("application/json")
