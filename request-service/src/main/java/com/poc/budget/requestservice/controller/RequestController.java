@@ -43,7 +43,7 @@ public class RequestController {
 	}
 	
 	@Operation(summary = "Get Request details based on id")
-	@GetMapping("/getByRequestId/{id}")
+	@GetMapping("/getRequestDetailsById/{id}")
 	@Produces("application/json")
 	@Consumes("application/json")
 	public RequestDetails getByRequestId(@PathVariable long id){
