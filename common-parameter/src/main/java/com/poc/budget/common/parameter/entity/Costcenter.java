@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Transient;
 
 @Entity
 public class Costcenter {
@@ -19,7 +18,6 @@ public class Costcenter {
 	private String AliasId;
 	private String defaultCurrency;
 	private Long ownerId;
-	@Transient
 	private String SiteName;
 	private String visibility;
 	@ManyToMany
