@@ -47,4 +47,10 @@ public class ProductDataServiceImpl implements ProductDataService{
 		return productdata;
 	}
 
+	@Override
+	public ProductData getProductDataById(long id) {
+		// TODO Auto-generated method stub
+		return productDataRepository.findProductDataById(id);
+	}
+
 }

@@ -1,8 +1,11 @@
 package com.poc.budget.common.parameter.entity;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
@@ -13,11 +16,14 @@ public class Site {
 	private long id;
 	private String name;
 	private String fullname;
-	private String type;
+//	private String type;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Site parent;
 	@Transient
 	private String Children;
+	
+	@ManyToMany(mappedBy = "sites")
+	private Set<Costcenter> costcenter;
 	
 
 	public long getId() {
@@ -44,14 +50,11 @@ public class Site {
 		this.fullname = fullname;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
+	/*
+	 * public String getType() { return type; }
+	 * 
+	 * public void setType(String type) { this.type = type; }
+	 */
 	
 
 	public String getChildren() {

@@ -19,6 +19,12 @@ public class CostCenterServiceImpl implements CostCenterService {
 		return costcenterrepository.findAll();
 	}
 
+	@Override
+	public Costcenter getCostCenterById(int id) {
+		// TODO Auto-generated method stub
+		return costcenterrepository.findCostCenterById(id);
+	}
+
 	
 	
 	

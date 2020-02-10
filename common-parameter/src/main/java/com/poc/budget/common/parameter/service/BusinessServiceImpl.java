@@ -24,4 +24,10 @@ public class BusinessServiceImpl implements BusinessService {
 		return businessrepository.getSubBusiness(id);
 	}
 
+	@Override
+	public Business getBusinessById(long id) {
+		// TODO Auto-generated method stub
+		return businessrepository.findBusinessById(id);
+	}
+
 }

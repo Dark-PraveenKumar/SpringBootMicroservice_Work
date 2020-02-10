@@ -40,4 +40,12 @@ public class BusinessController {
 	public List<Business> getSubBusiness(@PathVariable long id){
 		return businessservice.getSubBusiness(id);
 	}
+	
+	@Operation(summary = "Get Business for given site")
+	@GetMapping("/geBusinessById/{id}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public Business getBusinessById(@PathVariable long id){
+		return businessservice.getBusinessById(id);
+	}
 }

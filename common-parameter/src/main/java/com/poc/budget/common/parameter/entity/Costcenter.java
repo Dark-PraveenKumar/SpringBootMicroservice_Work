@@ -1,34 +1,47 @@
 package com.poc.budget.common.parameter.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Costcenter {
 
 	@Id
 	@GeneratedValue
-	private int Id;
-	private int AliasId;
+	private long Id;
+	private String AliasId;
 	private String defaultCurrency;
-	private double ownerId;
+	private Long ownerId;
+	@Transient
 	private String SiteName;
 	private String visibility;
+	@ManyToMany
+	@JoinTable(
+			  name = "Site_Costcenter_link", 
+			  joinColumns = @JoinColumn(name = "costcenter_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "site_id"))
+	private Set<Site> sites;
 
-	public int getId() {
+	public long getId() {
 		return Id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		Id = id;
 	}
 
-	public int getAliasId() {
+	public String getAliasId() {
 		return AliasId;
 	}
 
-	public void setAliasId(int aliasId) {
+	public void setAliasId(String aliasId) {
 		AliasId = aliasId;
 	}
 
@@ -40,11 +53,11 @@ public class Costcenter {
 		this.defaultCurrency = defaultCurrency;
 	}
 
-	public double getOwnerId() {
+	public Long getOwnerId() {
 		return ownerId;
 	}
 
-	public void setOwnerId(double ownerId) {
+	public void setOwnerId(Long ownerId) {
 		this.ownerId = ownerId;
 	}
 

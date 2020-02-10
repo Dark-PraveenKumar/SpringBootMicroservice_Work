@@ -33,4 +33,10 @@ public class SupplierServiceImpl implements SupplierService{
 		return supplierRepository.save(supplier);
 	}
 
+	@Override
+	public Supplier getSupplierById(long id) {
+		// TODO Auto-generated method stub
+		return supplierRepository.findSupplierById(id);
+	}
+
 }

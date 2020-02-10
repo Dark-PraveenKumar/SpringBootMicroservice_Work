@@ -12,6 +12,9 @@ import com.poc.budget.common.parameter.entity.Costcenter;
 @Repository
 public interface CostcenterRepository extends JpaRepository<Costcenter, Integer> {
 	
-	@Query("select cc from Costcenter cc where cc.id= :id")
+	@Query(value = "select * from Costcenter cc where cc.id in (select sc.costcenter_id from Site_Costcenter_link where sc.site_id= :id)",nativeQuery = true)
 	public List<Costcenter> getCostCenterBySite(@Param("id") long id);
+	
+	@Query("select cc from Costcenter cc where cc.id= :id")
+	public Costcenter findCostCenterById(@Param("id") long id);
 }

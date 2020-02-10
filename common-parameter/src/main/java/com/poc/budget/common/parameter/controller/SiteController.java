@@ -42,4 +42,11 @@ public class SiteController {
 		return siteservice.getAllSitewithParentId(id);
 	}
 
+	@GetMapping("/getSiteDetailsById/{id}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	@Operation(summary = "Get sites by id")
+	public @ResponseBody Site getSiteById(@PathVariable long id) {
+		return siteservice.findSiteById(id);
+	}
 }

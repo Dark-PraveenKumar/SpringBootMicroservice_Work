@@ -24,4 +24,10 @@ public class SiteServiceImpl implements SiteService{
 		return siterepository.getAllSitewithParentId(id);
 	}
 
+	@Override
+	public Site findSiteById(long id) {
+		// TODO Auto-generated method stub
+		return siterepository.findSiteById(id);
+	}
+
 }

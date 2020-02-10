@@ -18,4 +18,8 @@ public interface SiteRepository extends JpaRepository<Site, Integer>{
 	@Query("SELECT s FROM Site s WHERE s.parent is null")
 	public List<Site> getAllParentSites();
 	
+	@Query("SELECT s FROM Site s WHERE s.id= :id")
+	public Site findSiteById(@Param("id") long id);
+	
+	
 }

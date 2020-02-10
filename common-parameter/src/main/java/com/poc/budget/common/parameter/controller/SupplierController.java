@@ -47,4 +47,13 @@ public class SupplierController {
 	return result;
 	}
 	
+	@Operation(summary = "Get suppliers by id")
+	@GetMapping("/getSupplierById/{id}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody Supplier getSupplierById(@PathVariable long id) {
+	Supplier result = supplierService.getSupplierById(id);
+	return result;
+	}
+	
 }

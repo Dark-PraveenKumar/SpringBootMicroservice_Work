@@ -44,4 +44,13 @@ public class WorkEffortController {
 	List<WorkEffort> result = workEffortService.getProgramForBusiness(BusinessId);
 	return result;
 	}
+	
+	@Operation(summary = "Get WorkEffort By id")
+	@GetMapping("/getWorkEffortById/{id}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody WorkEffort getWorkEffortById(@PathVariable long id) {
+	WorkEffort result = workEffortService.getWorkEffortById(id);
+	return result;
+	}
 }

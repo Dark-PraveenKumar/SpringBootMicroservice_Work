@@ -27,4 +27,10 @@ public class WorkEffortServiceImpl implements WorkEffortService{
 		return workEffortRepository.findProgramByBusiness(BusinessId);
 		//return workEffortRepository.findProgramForBusiness(2641);
 	}
+
+	@Override
+	public WorkEffort getWorkEffortById(long id) {
+		// TODO Auto-generated method stub
+		return workEffortRepository.findWorkEffortById(id);
+	}
 }

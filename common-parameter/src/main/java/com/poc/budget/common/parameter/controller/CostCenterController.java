@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poc.budget.common.parameter.entity.Costcenter;
+import com.poc.budget.common.parameter.entity.Costcenter;
 import com.poc.budget.common.parameter.service.CostCenterService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -31,6 +32,14 @@ public class CostCenterController {
 	@Consumes("application/json")
 	public List<Costcenter> getCostCenterBySite(@PathVariable int id) {
 		return costcenterservice.getCostCenterBySite(id);
+	}
+
+	@Operation(summary = "Get CostCenter based on id")
+	@GetMapping("/getCostCenterById/{id}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public Costcenter getCostCenterById(@PathVariable int id) {
+		return costcenterservice.getCostCenterById(id);
 	}
 
 	

@@ -20,4 +20,7 @@ public interface WorkEffortRepository extends JpaRepository<WorkEffort, Long>{
 	
 	@Query(value = "select * from work_effort where id in (select work_effort_id from business_Work_effort_link where business_id = ?1 and description like 'program') ",nativeQuery = true)
 	public List<WorkEffort> findProgramByBusiness(long business_id);
+	
+	@Query("SELECT we FROM WorkEffort we WHERE we.id= :id")
+	public WorkEffort findWorkEffortById(@Param("id")long id);
 }

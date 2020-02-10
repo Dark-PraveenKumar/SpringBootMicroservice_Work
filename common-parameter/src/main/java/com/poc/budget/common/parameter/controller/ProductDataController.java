@@ -55,6 +55,14 @@ public class ProductDataController {
 	return result;
 	}
 	
+	@Operation(summary = "Get product Details for the product id")
+	@GetMapping("/getProductDataById/{id}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public ProductData getProductDataByid(@PathVariable long id) {
+	ProductData result = productDataService.getProductDataById(id);
+	return result;
+	}
 }
 	
 	

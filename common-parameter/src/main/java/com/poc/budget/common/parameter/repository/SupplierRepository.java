@@ -12,4 +12,7 @@ public interface SupplierRepository extends JpaRepository<Supplier, Long>{
 
 	@Query(value = "SELECT * FROM supplier WHERE name LIKE %:search% and type = 'BUDGET' and budget_removed = 0", nativeQuery = true)
 	public List<Supplier> findSuggestiveSuppliers(@Param("search") String name);
+	
+	@Query(value = "SELECT s FROM Supplier s WHERE s.id =:id")
+	public Supplier findSupplierById(@Param("id") long id);
 }

@@ -8,4 +8,6 @@ public interface CostCenterService {
 
 	public List<Costcenter> getCostCenterBySite(int Id);
 	
+	public Costcenter getCostCenterById(int id);
+	
 }

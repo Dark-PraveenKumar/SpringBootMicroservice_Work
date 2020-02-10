@@ -11,4 +11,6 @@ public interface ProductDataService {
 	public List<ProductData> getProductDataByName(String search);
 	
 	public ProductData createProductData(ProductData productData);
+	
+	public ProductData getProductDataById(long id);
 }

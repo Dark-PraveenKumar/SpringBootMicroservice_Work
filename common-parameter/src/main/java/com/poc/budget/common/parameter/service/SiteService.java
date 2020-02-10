@@ -10,4 +10,6 @@ public interface SiteService {
 	
 	public List<Site> getAllSitewithParentId(long id);
 	
+	public Site findSiteById(long id);
+	
 }

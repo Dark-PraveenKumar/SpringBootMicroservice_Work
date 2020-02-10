@@ -18,5 +18,8 @@ public interface BusinessRepository extends JpaRepository<Business, Integer>{
 	@Query("select b from Business b where b.ParentUnit is null")
 	public List<Business> getAllBusiness();
 	
+	@Query("select b from Business b where b.id= :id")
+	public Business findBusinessById(@Param("id") long id);
+	
 
 }

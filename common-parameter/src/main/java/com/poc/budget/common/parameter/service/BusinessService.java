@@ -9,4 +9,6 @@ public interface BusinessService {
 	public List<Business> getAllBusiness();
 	
 	public List<Business> getSubBusiness(long id);
+	
+	public Business getBusinessById(long id);
 }
