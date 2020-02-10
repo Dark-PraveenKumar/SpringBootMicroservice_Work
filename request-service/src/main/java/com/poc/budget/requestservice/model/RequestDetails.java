@@ -19,6 +19,7 @@ public class RequestDetails {
 	private WorkEffort purchasedFor;
 	private Supplier supplier;
 	private Set<RequestItemDetails> items;
+	private FinancialAccount account;
 	
 	public long getId() {
 		return id;
@@ -109,6 +110,12 @@ public class RequestDetails {
 	}
 	public void setItems(Set<RequestItemDetails> items) {
 		this.items = items;
+	}
+	public FinancialAccount getAccount() {
+		return account;
+	}
+	public void setAccount(FinancialAccount account) {
+		this.account = account;
 	}
 	
 	

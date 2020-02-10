@@ -1,6 +1,5 @@
 package com.poc.budget.requestservice.entity;
 
-import java.util.Calendar;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -33,6 +33,7 @@ public class Request {
 	private long purchasedForOrganization;
 	private long purchasedFor;
 	private long supplier;
+	private long financialAccount;
 	
 	@OneToMany(mappedBy="request",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JsonManagedReference
@@ -135,6 +136,12 @@ public class Request {
 	}
 	public void setItems(Set<RequestItem> items) {
 		this.items = items;
+	}
+	public long getFinancialAccount() {
+		return financialAccount;
+	}
+	public void setFinancialAccount(long financialAccount) {
+		this.financialAccount = financialAccount;
 	}
 	
 	

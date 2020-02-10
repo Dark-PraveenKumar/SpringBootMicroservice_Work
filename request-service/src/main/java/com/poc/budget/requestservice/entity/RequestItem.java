@@ -24,29 +24,8 @@ public class RequestItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", insertable = true, updatable = false)
 	private long id;
-	
-	
-	 public enum StateOfRequestItem  {
-	        DRAFT ("Draft"),
-	        PROPOSED ("Proposed"),
-	        DECLINED ("Declined"),
-	        ACCEPTED("Accepted"),
-	        ORDERED("Ordered"),
-	        DELIVERED ("Delivered"),
-	        INVOICED ("Invoiced"),
-	        DELETED ("Deleted");        
-	        
-	        private String description;
-	        
-	        private StateOfRequestItem(String description) {
-	            this.description = description;
-	        }
-	        
-	        public String getDescription() {
-	            return this.description;
-	        }
-	    }
-	 private String itemId;
+   
+	private String itemId;
 	 
 	 private String name;
 	 
@@ -55,6 +34,14 @@ public class RequestItem {
 	 private String commentOne;
 		
 	 private String commentTwo;
+	 
+	 private Double unitPrice;
+	 
+	 private long quantity;
+	 
+	 private long currency;
+	 
+	 private long type;
 	 
 	 @ManyToOne()
 	 @JoinColumn(name = "request", nullable = false)
@@ -127,6 +114,38 @@ public class RequestItem {
 
 	public void setSupplierProductCodes(Set<RequestItemProductDataLink> supplierProductCodes) {
 		this.supplierProductCodes = supplierProductCodes;
+	}
+
+	public Double getUnitPrice() {
+		return unitPrice;
+	}
+
+	public void setUnitPrice(Double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public long getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(long currency) {
+		this.currency = currency;
+	}
+
+	public long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
+	}
+
+	public long getType() {
+		return type;
+	}
+
+	public void setType(long type) {
+		this.type = type;
 	}
 	 
 	 

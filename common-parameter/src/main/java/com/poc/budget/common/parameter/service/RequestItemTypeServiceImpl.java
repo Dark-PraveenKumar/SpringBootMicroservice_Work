@@ -26,4 +26,10 @@ public class RequestItemTypeServiceImpl implements RequestItemTypeService{
 		return requestItemTypeRepository.save(requestItemType);
 	}
 
+	@Override
+	public RequestItemType getRequestItemTypeByid(long id) {
+		// TODO Auto-generated method stub
+		return requestItemTypeRepository.findRequestItemTypeById(id);
+	}
+
 }

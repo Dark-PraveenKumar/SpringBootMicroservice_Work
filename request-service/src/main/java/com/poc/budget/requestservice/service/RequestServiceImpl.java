@@ -14,10 +14,13 @@ import com.poc.budget.requestservice.entity.RequestItem;
 import com.poc.budget.requestservice.entity.RequestItemProductDataLink;
 import com.poc.budget.requestservice.model.Business;
 import com.poc.budget.requestservice.model.CostCenter;
+import com.poc.budget.requestservice.model.Currency;
+import com.poc.budget.requestservice.model.FinancialAccount;
 import com.poc.budget.requestservice.model.ProductData;
 import com.poc.budget.requestservice.model.RequestDetails;
 import com.poc.budget.requestservice.model.RequestItemDetails;
 import com.poc.budget.requestservice.model.RequestItemProductDatalinkDetails;
+import com.poc.budget.requestservice.model.RequestItemType;
 import com.poc.budget.requestservice.model.Site;
 import com.poc.budget.requestservice.model.Supplier;
 import com.poc.budget.requestservice.model.WorkEffort;
@@ -59,6 +62,7 @@ public class RequestServiceImpl implements RequestService{
 		requestDetails.setPurchasedForOrganization(getBusiness(request.getPurchasedForOrganization()));
 		requestDetails.setPurchasedFor(getProgram(request.getPurchasedFor()));
 		requestDetails.setSupplier(getSupplier(request.getSupplier()));
+		requestDetails.setAccount(getAccount(request.getFinancialAccount()));
 		//requestDetails.setItems(request.getItems());
 		for(RequestItem items: request.getItems()) {
 			RequestItemDetails requestItem = new RequestItemDetails(items.getItemId(),items.getName(),items.getInfo(),items.getCommentOne(),items.getCommentTwo(),items.getId());
@@ -71,6 +75,10 @@ public class RequestServiceImpl implements RequestService{
 				productDetails.add(products);
 			}
 			requestItem.setSupplierProductCodes(productDetails);
+			requestItem.setUnitPrice(items.getUnitPrice());
+			requestItem.setQuantity(items.getQuantity());
+			requestItem.setCurrency(getCurrency(items.getCurrency()));
+			requestItem.setType(getType(items.getType()));
 			itemDetails.add(requestItem);
 		}
 		requestDetails.setItems(itemDetails);
@@ -155,5 +163,44 @@ public class RequestServiceImpl implements RequestService{
 		p.setId(id);
 		p.setProductCode("Info Not Available");
 		return p;
+	}
+	
+	@HystrixCommand(fallbackMethod = "getCurrency_fallBack")
+	public Currency getCurrency(long id) {
+		System.out.println("getCurrency"+id);
+		return restTemplate.getForObject("http://common-parameter/4budget/api/commonParameter/currency/getCurrencyById/"+id, Currency.class);
+	}
+	
+	public Currency getCurrency_fallBack(long id) {
+		Currency c = new Currency();
+		c.setId(id);
+		c.setName("Info Not Available");
+		return c;
+	}
+	
+	@HystrixCommand(fallbackMethod = "getAccount_fallBack")
+	public FinancialAccount getAccount(long id) {
+		System.out.println("getAccount"+id);
+		return restTemplate.getForObject("http://4budget-parameters/4budget/api/4budgetparameters/getAccountById/"+id, FinancialAccount.class);
+	}
+	
+	public FinancialAccount getAccount_fallBack(long id) {
+		FinancialAccount f = new FinancialAccount();
+		f.setId(id);
+		f.setAccountDescription("Info Not Available");
+		return f;
+	}
+	
+	@HystrixCommand(fallbackMethod = "getType_fallBack")
+	public RequestItemType getType(long id) {
+		System.out.println("getAccount"+id);
+		return restTemplate.getForObject("http://common-parameter/4budget/api/commonParameter/requestItemtype/getRequestItemTypeById/"+id, RequestItemType.class);
+	}
+	
+	public RequestItemType getType_fallBack(long id) {
+		RequestItemType r = new RequestItemType();
+		r.setId(id);
+		r.setDescription("Info Not Available");
+		return r;
 	}
 }

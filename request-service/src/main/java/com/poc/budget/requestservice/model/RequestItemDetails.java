@@ -17,6 +17,14 @@ public class RequestItemDetails {
 	 private String commentTwo;
 	 private long id;
 	 private Set<RequestItemProductDatalinkDetails> supplierProductCodes;
+	 
+	 private Currency currency;
+	 
+	 private Double unitPrice;
+	 
+	 private long quantity;
+	 
+	 private RequestItemType type;
 
 	public String getItemId() {
 		return itemId;
@@ -87,6 +95,38 @@ public class RequestItemDetails {
 	public RequestItemDetails() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+
+	public Double getUnitPrice() {
+		return unitPrice;
+	}
+
+	public void setUnitPrice(Double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
+	}
+
+	public RequestItemType getType() {
+		return type;
+	}
+
+	public void setType(RequestItemType type) {
+		this.type = type;
 	}
 	 
 	 

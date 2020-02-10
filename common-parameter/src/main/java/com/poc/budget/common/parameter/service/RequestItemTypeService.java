@@ -12,4 +12,6 @@ public interface RequestItemTypeService {
 	public List<RequestItemType> getAllItemTypes();
 	
 	public RequestItemType createRequestItemType(RequestItemType requestItemType);
+	
+	public RequestItemType getRequestItemTypeByid(long id);
 }

@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @Tag(name = "4budget-parameter", description = ": API")
-@RequestMapping("/4budget/api")
+@RequestMapping("/4budget/api/4budgetparameters")
 public class FinancialAccountController {
 
 	@Autowired

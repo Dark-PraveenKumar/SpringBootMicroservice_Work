@@ -46,4 +46,13 @@ public class RequestItemTypeController {
 	List<RequestItemType> result = requestItemTypeService.getAllItemTypes();
 	return result;
 	}
+	
+	@Operation(summary = "Get requestItemTypes based on id")
+	@GetMapping("/getRequestItemTypeById/{id}")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public @ResponseBody RequestItemType getRequestItemTypeById(@PathVariable long id) {
+	RequestItemType result = requestItemTypeService.getRequestItemTypeByid(id);
+	return result;
+	}
 }
